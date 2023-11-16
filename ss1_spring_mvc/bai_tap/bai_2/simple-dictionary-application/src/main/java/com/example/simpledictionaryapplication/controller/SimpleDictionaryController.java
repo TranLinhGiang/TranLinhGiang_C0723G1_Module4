@@ -18,7 +18,7 @@ public class SimpleDictionaryController {
     }
     @PostMapping("/index")
     public String search(@RequestParam String word, Model model){
-        String words = iSimpleDictionaryService.getDictionary().get(word);
+        String words =iSimpleDictionaryService.search(word);
         model.addAttribute("list", words);
         return "/index";
     }

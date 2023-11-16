@@ -15,4 +15,9 @@ public class SimpleDictionaryService implements ISimpleDictionaryService{
     public Map<String, String> getDictionary() {
         return iSimpleDictionaryRepository.getDictionary();
     }
+
+    @Override
+    public String search(String word) {
+        return iSimpleDictionaryRepository.search(word);
+    }
 }

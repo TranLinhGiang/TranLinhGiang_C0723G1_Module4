@@ -17,8 +17,15 @@ public class SimpleDictionaryRepository implements ISimpleDictionaryRepository{
         stringStringMap.put("pet","thú cưng");
     }
 
+
     @Override
     public Map<String, String> getDictionary() {
         return stringStringMap;
+    }
+
+    @Override
+    public String search(String word) {
+
+        return stringStringMap.get(word);
     }
 }
