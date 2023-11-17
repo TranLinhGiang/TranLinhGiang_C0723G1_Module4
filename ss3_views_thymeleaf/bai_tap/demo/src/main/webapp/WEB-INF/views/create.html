@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+</head>
+<body>
+<a href="/">Trở về danh sách sản phẩm</a>
+<br>
+<h1>Thêm mới sản phẩm</h1>
+<form action="/save" method="post" th:object="${productCreate}" novalidate="novalidate">
+    <table border="1" style="table-layout: auto">
+        <tr>
+            <th>mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá sản phẩm</th>
+            <th>Nơi xuất xứ</th>
+            <th>Hạn sử dụng</th>
+        </tr>
+        <td>
+            <input type="number" placeholder="Nhập mã sản phẩm" th:field="*{id}"/>
+        </td>
+        <td>
+            <input type="text" placeholder="Nhập tên của sản phẩm" th:field="*{name}"/>
+        </td>
+        <td>
+            <input type="number" placeholder="Nhập giá của sản phẩm" th:field="*{price}"/>
+        </td>
+        <td>
+            <input type="text" placeholder="Nhập nơi xuất xứ của sản phẩm" th:field="*{origin}"/>
+        </td>
+        <td>
+            <input type="text" placeholder="Nhập hạn sử dụng của sản phẩm" th:field="*{expiry}"/>
+        </td>
+
+    </table>
+    <br>
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
