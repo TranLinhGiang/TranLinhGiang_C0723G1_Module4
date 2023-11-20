@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c71dd30-fcd3-4555-aa54-66e7775da369" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/java/com/example/springemailvalidation/controller/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_1/spring-email-validation/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_2/spring-timezone-gradle/src/main/java/com/example/springtimezonegradle/controller/TimeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_2/spring-timezone-gradle/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_2/spring-timezone-gradle/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_2/spring-timezone-gradle/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_2/spring-timezone-gradle/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_3/customer-managament/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_3/customer-managament/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_3/customer-managament/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/bai_3/customer-managament/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/bai_tap/bai_2/simple-dictionary-application/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/bai_tap/bai_2/simple-dictionary-application/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/bai_tap/bai_2/simple-dictionary-application/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/bai_tap/bai_2/simple-dictionary-application/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3c71dd30-fcd3-4555-aa54-66e7775da369" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +23,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/TranLinhGiang_C0723G1_Module4/ss2_spring_controller/bai_tap/bai_1"
+    "last_opened_file_path": "F:/TranLinhGiang_C0723G1_Module4/ss2_spring_controller/bai_tap/bai_1/sandwich"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -53,6 +35,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700022150271</updated>
       <workItem from="1700022151460" duration="39000" />
+      <workItem from="1700450490516" duration="10000" />
     </task>
     <servers />
   </component>
