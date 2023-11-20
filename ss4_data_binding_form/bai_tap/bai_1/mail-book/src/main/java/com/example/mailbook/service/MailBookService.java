@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailBookService implements IMailBookService{
     @Autowired
-    IMailBookRepository iMailBookRepository;
+   private IMailBookRepository iMailBookRepository;
     @Override
     public MailBook getMailBook() {
         return iMailBookRepository.getMailBook();

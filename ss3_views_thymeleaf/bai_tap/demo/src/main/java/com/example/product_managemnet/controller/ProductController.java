@@ -2,13 +2,13 @@ package com.example.product_managemnet.controller;
 
 import com.example.product_managemnet.model.Product;
 import com.example.product_managemnet.service.IProductService;
-import com.example.product_managemnet.service.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Controller

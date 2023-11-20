@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MailBookController {
     @Autowired
-    MailBookService mailBookService;
+   private MailBookService mailBookService;
 
     @GetMapping("/")
     public String showForm(Model model) {
