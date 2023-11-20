@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="form">
+  <form action="/deletePr" th:object="${products}" method="post" novalidate="novalidate">
+
+    <label>Tên sản phẩm</label>
+    <input th:field="*{name}"/>
+    <br>
+    <label>Giá sản phẩm</label>
+    <input th:field="*{price}"/>
+    <br>
+    <label>Nơi xuất xứ</label>
+    <input th:field="*{origin}"/>
+    <br>
+    <label>Hạn sử dụng</label>
+    <input th:field="*{expiry}"/>
+    <br>
+    <input type="hidden" th:field="*{id}">
+    <input type="submit" value="Xóa"/>
+    <button><a style="text-decoration: none" href="/">Không</a></button>
+  </form>
+</div>
+</body>
+</html>
