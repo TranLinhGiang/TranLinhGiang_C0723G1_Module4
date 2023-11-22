@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 style="text-align: center"> Delete Product Management</h2>
+<div id="form">
+    <form action="/deletePr" th:object="${product}" method="post" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>Tên sản phẩm</label>
+        <input th:field="*{name}"/>
+        <br>
+        <label>Giá sản phẩm</label>
+        <input th:field="*{price}"/>
+        <br>
+        <label>Nơi xuất xứ</label>
+        <input th:field="*{describe}"/>
+        <br>
+        <input type="submit" value="Xóa"/>
+        <button><a style="text-decoration: none" href="/home">Không</a></button>
+    </form>
+</div>
+</body>
+</html>

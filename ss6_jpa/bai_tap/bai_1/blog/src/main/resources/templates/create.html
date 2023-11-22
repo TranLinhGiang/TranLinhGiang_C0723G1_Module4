@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th{text-align: center}
+        input {text-align: center}
+        tr{ text-align: center}
+    </style>
+</head>
+<body>
+<div style="text-align: center">
+<a href="/home">Trở về danh sách sản phẩm</a>
+<br>
+<h2>Thêm mới blog</h2>
+<form action="/add" novalidate="novalidate" method="post" th:object="${blog}" >
+<table class="table" style="position: relative;left: 400px;" border="1">
+    <tr>
+        <th>Tên blog</th>
+        <th>Tên người đăng</th>
+        <th>Ngày đăng blog</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" placeholder="Nhập tên blog" th:field="*{name}">
+        </td>
+        <td>
+            <input type="text" placeholder="Nhập tên người đăng" th:field="*{poster}">
+        </td>
+        <td>
+            <input type="text" placeholder="Nhập ngày đăng blog" th:field="*{dateSubmitted}">
+        </td>
+    </tr>
+</table>
+    <br>
+    <button style="text-align: center" type="submit">Lưu</button>
+</form>
+</div>
+</body>
+</html>
