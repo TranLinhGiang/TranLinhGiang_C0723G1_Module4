@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            background: grey;
+        }
+        input{
+            background: grey;
+            color: white;
+        }
+        button{
+            background: darkgreen;
+        }
+    </style>
 </head>
 <body>
+<a href="/home">Trở về trang chủ</a>
 <h2>Chỉnh sửa blog</h2>
+
 <form action="/update" novalidate="novalidate" method="post" th:object="${updateBl}">
-    <table class="table">
+    <table class="table" border="1">
         <tr>
             <th>Tên blog</th>
             <th>Tên người đăng</th>
-            <th>Nagyf đăng blog</th>
+            <th>Ngày đăng blog</th>
         </tr>
         <tr>
             <input type='hidden' th:field="*{id}" />
