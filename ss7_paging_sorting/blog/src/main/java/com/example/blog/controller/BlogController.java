@@ -10,10 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping()
@@ -25,32 +23,37 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("/home")
-    public String home(@RequestParam(defaultValue = "0") int page,
-                       @RequestParam(defaultValue = "") String searchName,
-
-                       Model model){
-        Pageable pageable = PageRequest.of(page,6, Sort.by("name").ascending().and(Sort.by("poster").descending()));
-        Page<Blog> blogPage= blogService.findAll(searchName,pageable);
-//        model.addAttribute("category", categoryService.findAll());
+    public String home(
+            @RequestParam(required = false) String mess,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "") String searchName,
+            @RequestParam(required = false) String categoryId,
+            Model model
+    ){
+        Pageable pageable = PageRequest.of(page,4, Sort.by("name").ascending().and(Sort.by("poster").descending()));
+        Page<Blog> blogPage= blogService.findAll(searchName,pageable, categoryId);
         model.addAttribute("blogPage",blogPage);
         model.addAttribute("searchName",searchName);
-        return "/home";
+        model.addAttribute("mess", mess);
+        model.addAttribute("selectedCategory", categoryId);
+        return "/blog/home";
     }
    @GetMapping("/create")
     public String save(Model model){
         model.addAttribute("category",categoryService.findAll() );
         model.addAttribute("blog",new Blog());
-        return "/create";
+        return "/blog/create";
    }
    @PostMapping("/add")
-    public String save(Blog blog){
+    public String save(@ModelAttribute Blog blog, RedirectAttributes attributes){
         blogService.save(blog);
+       attributes.addAttribute("mess", "Add blog success !");
         return "redirect:/home";
    }
    @GetMapping("/update")
     public String update(@RequestParam int id, Model model){
         model.addAttribute("updateBl",blogService.finById(id));
-        return "/update";
+        return "/blog/update";
    }
    @PostMapping("/update")
     public String update(Blog blog) {
@@ -60,7 +63,7 @@ public class BlogController {
    @GetMapping("/delete")
     public String delete(@RequestParam int id,Model model){
         model.addAttribute("deleteBlog",blogService.finById(id));
-        return "/delete";
+        return "/blog/delete";
    }
    @PostMapping("/delete")
     public String delete(Blog blog){
@@ -70,6 +73,6 @@ public class BlogController {
    @GetMapping("/detail")
     public String detail(@RequestParam int id,Model model){
         model.addAttribute("blog",blogService.finById(id));
-        return "/detail";
+        return "/blog/detail";
    }
 }

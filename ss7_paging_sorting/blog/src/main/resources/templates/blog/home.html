@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <style>
+        button {
+            border-radius: 6px;
+        }
+
+        body {
+            background: grey;
+        }
+
+        .my-toast {
+            height: 30px;
+            line-height: 30px;
+            padding: 0px 0px 0px 5px;
+            color: white;
+            position: fixed;
+            width: 300px;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+    <script>
+        function displayToast(message, color) {
+            document.getElementById("toastContent").innerHTML = message;
+            document.getElementById("liveToast").style.background = color;
+            let myAlert = document.getElementById('liveToast');//select id of toast
+
+            console.log(myAlert)
+            let bsAlert = bootstrap.Toast.getOrCreateInstance(myAlert);//inizialize it
+            bsAlert.show();//show it
+        }
+    </script>
+</head>
+<body>
+
+<h2 style="text-align: center"> Trang chủ blog</h2>
+<p>
+    <button style="background: darkgreen"><a style="text-decoration: none; color: white" th:href="@{/create}"> Thêm mới
+        blog</a></button>
+</p>
+
+    <form name="form1" th:action="@{/home(page=null, searchName=${searchName})}">
+        <select name="categoryId" onchange="javascript:document.form1.submit();">
+            <option value="1" th:selected="${selectedCategory=='1'}">du lịch</option>
+            <option value="2" th:selected="${selectedCategory=='2'}">đời sống</option>
+        </select>
+    </form>
+
+
+
+<form class="d-flex col-3" th:action="@{/home(page=null, categoryId=${selectedCategory})}" method="get" style="float:right;
+    position: relative;
+    top: -42px;">
+    <input name="searchName" th:value="${searchName}" class="form-control me-2" type="search" placeholder="Search"
+           aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+
+
+<table class="table table-dark table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Tên blog</th>
+        <th>Tên người đăng</th>
+        <th>Ngày đăng blog</th>
+        <th>Danh mục</th>
+        <th>Chỉnh sửa</th>
+        <th>Xóa</th>
+        <th>Xem chi tiết blog</th>
+    </tr>
+    <tr th:each="row,start :${blogPage}">
+        <td th:text="${start.count}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.poster}"></td>
+        <td th:text="${row.dateSubmitted}"></td>
+        <td th:text="${row.category.name}"></td>
+        <td>
+            <button style="border: solid 1px"><a style="text-decoration: none; color: black"
+                                                 th:href="@{/update(id=${row.getId()})}">Sửa</a>
+            </button>
+        </td>
+        <td>
+            <button style="border: solid 1px"><a style="text-decoration: none; color: black"
+                                                 th:href="@{/delete(id=${row.getId()})}">Xóa</a>
+            </button>
+        </td>
+        <td>
+            <button style="border: solid 1px"><a style="text-decoration: none; color: black"
+                                                 th:href="@{/detail(id=${row.getId()})}">Chi
+                tiết</a></button>
+        </td>
+    </tr>
+</table>
+<div style="float: right">
+
+    <a style="color:black;text-decoration: none" th:if="${blogPage.hasPrevious()}"
+       th:href="@{/home(page=${blogPage.number-1},searchName=${searchName},categoryId=${selectedCategory})}">
+        <pan><<</pan>
+        Trang trước</a>
+    <span th:text="${blogPage.number+1}"></span>
+    <span th:text="${blogPage.totalPages}"></span>
+
+
+    <a style="color: black; text-decoration: none" th:if="${blogPage.hasNext()}"
+       th:href="@{/home(page=${blogPage.number+1},searchName=${searchName},categoryId=${selectedCategory})}">Trang tiếp theo
+        <pan>>></pan>
+    </a>
+
+    <!--toast-->
+    <div id="liveToast" class="my-toast toast">
+        <span id="toastContent">Nội dung hiển thị</span>
+    </div>
+<!--    <div class="position-fixed top-0 right-0" style="z-index: 11;margin-left: 500px">-->
+<!--        <div id="liveToast" style="width: 230px; color: white" class="toast"-->
+<!--             role="dialog" aria-live="assertive" aria-atomic="true">-->
+<!--            <div class="toast-body">-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px" height="30px">-->
+<!--                    <g id="surface1_4_">-->
+<!--                        <path style="fill:#4CAF50;"-->
+<!--                              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"/>-->
+<!--                        <path style="fill:#CCFF90;"-->
+<!--                              d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z"/>-->
+<!--                    </g>-->
+<!--                </svg>-->
+<!--                <span id="toastContent">Nội dung hiển thị</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <input hidden id="mess" th:value="${mess}">
+<!--/toast-->
+    <script th:if="${mess}">
+        displayToast(document.getElementById("mess").value, "green")
+    </script>
+</div>
+
+</body>
+</html>

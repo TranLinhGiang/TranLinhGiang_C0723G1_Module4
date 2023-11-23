@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IBlogService {
-    Page<Blog> findAll(String search, Pageable pageable);
+    Page<Blog> findAll(String search, Pageable pageable, String categoryId);
 
     void save(Blog blog);
 

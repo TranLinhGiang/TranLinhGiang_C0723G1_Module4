@@ -18,21 +18,6 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public void save(Category category) {
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void update(Category category) {
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void remove(int id) {
-        categoryRepository.deleteById(id);
-    }
-
-    @Override
     public Category finById(int id) {
         return categoryRepository.findById(id).get();
     }

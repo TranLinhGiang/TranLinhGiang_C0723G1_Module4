@@ -12,7 +12,14 @@ public class BlogService implements IBlogService{
     @Autowired
     private IBlogRepository blogRepository;
     @Override
-    public Page<Blog> findAll(String searchName, Pageable pageable) {
+    public Page<Blog> findAll(String searchName, Pageable pageable, String category) {
+        if (category != null && category != "") {
+
+            int categoryId = Integer.parseInt(category);
+
+            return blogRepository.searchWithCategory(categoryId, pageable);
+        }
+
         return blogRepository.search("%"+searchName+"%", pageable);
     }
 
