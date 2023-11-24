@@ -20,6 +20,6 @@ public class Blog {
     private String poster;
     private String dateSubmitted;
     @ManyToOne
-    @JoinColumn(name ="category")
+    @JoinColumn(name ="category_id")
     private Category category;
 }

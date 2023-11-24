@@ -21,38 +21,38 @@
 </head>
 <body>
 <div style="text-align: center">
-<a href="/home">Trở về danh sách sản phẩm</a>
-<br>
-<h2>Thêm mới blog</h2>
-<form action="/add" novalidate="novalidate" method="post" th:object="${blog}" >
-<table class="table table-dark table-striped" style="position: relative;left: 400px;" border="1">
-    <tr>
-        <th>Tên blog</th>
-        <th>Tên người đăng</th>
-        <th>Ngày đăng blog</th>
-        <th>Danh mục</th>
-    </tr>
-    <tr>
-        <td>
-            <input  type="text" placeholder="Nhập tên blog" th:field="*{name}">
-        </td>
-        <td>
-            <input type="text" placeholder="Nhập tên người đăng" th:field="*{poster}">
-        </td>
-        <td>
-            <input type="date" placeholder="Nhập ngày đăng blog" th:field="*{dateSubmitted}">
-        </td>
-        <td>
-            <select th:field="*{category}">
-                <option th:each="c,status: ${category}" th:text="${c.name}" th:value="${c.id}"></option>
-            </select>
-        </td>
-
-    </tr>
-</table>
+    <a href="/home">Trở về danh sách sản phẩm</a>
     <br>
-    <button style="text-align: center" type="submit">Lưu</button>
-</form>
+    <h2>Thêm mới blog</h2>
+    <form action="/add" novalidate="novalidate" method="post" th:object="${blog}" >
+        <table class="table table-dark table-striped" style="position: relative;left: 400px;" border="1">
+            <tr>
+                <th>Tên blog</th>
+                <th>Tên người đăng</th>
+                <th>Ngày đăng blog</th>
+                <th>Danh mục</th>
+            </tr>
+            <tr>
+                <td>
+                    <input  type="text" placeholder="Nhập tên blog" th:field="*{name}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Nhập tên người đăng" th:field="*{poster}">
+                </td>
+                <td>
+                    <input type="date" placeholder="Nhập ngày đăng blog" th:field="*{dateSubmitted}">
+                </td>
+                <td>
+                    <select th:field="*{category}">
+                        <option th:each="c,status: ${category}" th:text="${c.name}" th:value="${c.id}"></option>
+                    </select>
+                </td>
+
+            </tr>
+        </table>
+        <br>
+        <button style="text-align: center" type="submit">Lưu</button>
+    </form>
 </div>
 </body>
 </html>
