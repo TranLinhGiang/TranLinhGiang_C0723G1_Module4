@@ -11,12 +11,12 @@
 </head>
 <body>
 <h1>Đăng nhập</h1>
-<form>
+<form th:action="@{/validateUser}" method="post">
     <table class="table">
         <tr>
             <td>Name</td>
             <td>
-                <input type="text" placeholder="Nhập tên">
+                <input  type="text" placeholder="Nhập tên">
             </td>
         </tr>
 
