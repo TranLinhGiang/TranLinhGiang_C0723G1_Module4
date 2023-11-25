@@ -1,4 +1,4 @@
-package com.example.validate_form.model;
+package com.example.songs.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,19 +14,11 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String firstName;
-
-    private String lastName;
-
-    private String phoneNumber;
-
-    private int age;
-
-    private String email;
-
+    private String artist; // nghệ sĩ
+    private String nameSong;
+    private String kindOfMusic; // thể loại nhạc
 }

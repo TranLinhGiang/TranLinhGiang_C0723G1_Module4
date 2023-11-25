@@ -19,23 +19,15 @@ import org.springframework.validation.Validator;
 @AllArgsConstructor
 public class UserDto implements Validator {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// id tự tăng
-    private int id;
-//    @NotEmpty
-//    @Size(min = 5, max = 45)
     private String firstName;
 
-//    @NotEmpty
-//    @Size(min = 5, max = 45)
-    private String lastname;
 
-//    @Pattern(regexp = "(84|0[3|5|7|8|9])+([0-9]{8})", message = "số điện thoại không đúng định dạng")
+    private String lastName;
+
     private String phoneNumber;
 
-//    @Pattern(regexp = "^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+$", message = "email không đúng định dạng")
     private String email;
 
-//    @Min(18)
     private int age;
 
     @Override
@@ -47,29 +39,29 @@ public class UserDto implements Validator {
     public void validate(Object target, Errors errors) {
         UserDto userDto = (UserDto) target;
         if ("".equals(userDto.firstName)) {
-            errors.rejectValue("firstName", null, "Yeu cau nhap");
-        } else if (!userDto.firstName.matches("^[A-Z][a-z]+$")) {
-            errors.rejectValue("firstName", null, "chua dung dinh dang");
+            errors.rejectValue("firstName", null, "yêu cầu nhập tên ");
+        } else if (!userDto.firstName.matches("^(\\w+)\\s(\\w+)$")) {
+            errors.rejectValue("firstName", null, "chưa đúng định dạng");
         }else if (userDto.firstName.length()<4||userDto.firstName.length()>45){
-            errors.rejectValue("firstName",null,"do dai toi thieu 5ky tu,toi da 45 ky tu");
-        }else if ("".equals(userDto.lastname)){
-            errors.rejectValue("lastName",null,"yeu cau nhap");
-        } else if (!userDto.lastname.matches("^[A-Z][a-z]+$")) {
-            errors.rejectValue("lastName", null, "chua dung dinh dang");
-        } else if (userDto.lastname.length()<4||userDto.lastname.length()>45) {
-            errors.rejectValue("lastName",null,"do dai toi thieu 5ky tu,toi da 45 ky tu");
+            errors.rejectValue("firstName",null,"độ dài tối thiểu 5 ký tự,tối đa 45 ký tự");
+        }else if ("".equals(userDto.lastName)){
+            errors.rejectValue("lastName",null,"yêu cầu nhập họ");
+        } else if (!userDto.lastName.matches("^[A-Z][a-z]+$")) {
+            errors.rejectValue("lastName", null, "chưa đúng định dạng");
+        } else if (userDto.lastName.length()<4||userDto.lastName.length()>45) {
+            errors.rejectValue("lastName",null,"độ dài tối thiểu 5 ký tự,tối đa 45 ký tự");
         } else if ("".equals(userDto.phoneNumber)) {
-            errors.rejectValue("phoneNumber",null,"yeu cau nhap so dien thoai");
-        } else if (!userDto.phoneNumber.trim().matches("^(0||84)\\d{9}$")) {
-            errors.rejectValue("phoneNumber",null,"sai dinh dang");
+            errors.rejectValue("phoneNumber",null,"phải nhập số điện thoại");
+        } else if (!userDto.phoneNumber.trim().matches("^(0|84)[0-9]{9}$")) {
+            errors.rejectValue("phoneNumber",null,"sai định dạng, bắt đầu 0 và đủ 10 chữ số");
         } else if ("".equals(userDto.age)) {
-            errors.rejectValue("age", null,"yeu cau nhap tuoi");
+            errors.rejectValue("age", null,"yêu cầu nhập tuổi");
         } else if (userDto.age<18|| userDto.age>120) {
-            errors.rejectValue("age", null,"so tuoi phai lon hon hoac bang 18 tuoi");
+            errors.rejectValue("age", null,"số tuổi lớn hơn hặc bằng 18");
         } else if ("".equals(userDto.email)) {
-            errors.rejectValue("email", null,"yeu cau nhap email");
+            errors.rejectValue("email", null,"yêu cầu nhập eamil");
         } else if (!userDto.email.matches("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+$")) {
-            errors.rejectValue("email",null,"email ban nhap khong dung dinh dang");
+            errors.rejectValue("email",null,"email không đúng định dạng");
         }
     }
 }

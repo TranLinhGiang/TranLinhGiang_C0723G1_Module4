@@ -17,15 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/user")
-public class FormController {
+public class UserController {
     @Autowired
     private IUserService userService;
     @GetMapping("/home")
     public String showForm(Model model) {
         UserDto userDto = new UserDto();
         model.addAttribute("userDto", userDto);
-        return "user/home";
+        return "/user/home";
     }
 
     @PostMapping("/add")
@@ -40,7 +39,6 @@ public class FormController {
         // copy dữ liệu từ userDto => user
         BeanUtils.copyProperties(userDto,user);
         userService.save(user);
-        attributes.addFlashAttribute("mess","them moi thanh cong");
-        return "redirect:/create";
+        return "/user/create";
     }
 }
