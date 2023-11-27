@@ -35,17 +35,17 @@ a{
         <tr>
             <td>
                 Nghệ sĩ:
-                <input type="text" placeholder="Nhập tên nghệ sĩ" th:field="*{artist}">
+                <input type="text" placeholder="Nhập tên nghệ sĩ" th:field="*{artist}"><br>
                 <small style="color: red" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></small><br>
             </td>
             <td>
                 Tên bài hát:
-                <input type="text" placeholder="Nhập tên bài hát" th:field="*{nameSong}">
+                <input type="text" placeholder="Nhập tên bài hát" th:field="*{nameSong}"><br>
                 <small style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></small><br>
             </td>
             <td>
                 Thể loại nhạc:
-                <input type="text" placeholder="Nhập tên thể loại nhạc" th:field="*{kindOfMusic}">
+                <input type="text" placeholder="Nhập tên thể loại nhạc" th:field="*{kindOfMusic}"><br>
                 <small style="color: red" th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></small><br>
             </td>
         </tr>

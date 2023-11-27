@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+<div th:insert="~{layout::header}"></div>
 <h2>Ứng dụng nhạc của tôi</h2>
 <button>
     <a th:href="@{/create}">Thêm mới nhạc</a>
@@ -57,6 +58,9 @@
             </td>
         </tr>
     </table>
+    <p th:if="${song.isEmpty()}">Không có danh sách hiển thị</p>
 </form>
+<div th:insert="~{layout::footer}"></div>
+
 </body>
 </html>
