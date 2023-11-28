@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;}
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        div{
+            width: 60%;
+            position: relative;
+            left: 20%;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+<form action="/home" method="post" th:object="${loginDto}">
+    <div class="imgcontainer">
+        <img src="https://scontent.fdad7-2.fna.fbcdn.net/v/t39.30808-6/401839266_1339013740308826_9147018494537704207_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oBmiUWp38SUAX8a2MpX&_nc_ht=scontent.fdad7-2.fna&oh=00_AfCn10ppXhwmeoCueZtvvDIvP4AiiiZHG-NmuYB8CLGRDw&oe=65693632" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required th:field="*{name}">
+        <small style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small><br>
+
+        <label ><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required th:field="*{passWork}">
+        <small style="color: red" th:if="${#fields.hasErrors('passWork')}" th:errors="*{passWork}"></small><br>
+
+        <button> Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+</form>
+</div>
+</body>
+</html>

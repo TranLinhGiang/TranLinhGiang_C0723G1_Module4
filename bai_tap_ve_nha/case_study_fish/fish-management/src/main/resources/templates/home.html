@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .anh {
+            height: 60px;
+            width: 60px;
+            border-radius: 31px;
+            position: relative;
+            left: 3%;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .anh_bia {
+            height: 300px;
+            background: black;
+            width: 70%;
+            position: relative;
+            left: 15%;
+            border-radius: 13px;
+        }
+
+        .the_1 {
+            background: #312f2f;
+            height: 600px;
+        }
+
+        .ten {
+            width: 34%;
+            position: relative;
+            left: 36%;
+            top: -210px;
+            color: white;
+        }
+
+        .ten1 {
+            position: relative;
+            left: 36%;
+            top: -218px;
+            color: white;
+        }
+
+        .gioi_thieu {
+            width: 23%;
+            height: 510px;
+            position: relative;
+            left: 16%;
+            background: #312f2f;
+            border-radius: 9px;
+        }
+
+        .bt {
+            width: 96%;
+            position: relative;
+            left: 2%;
+            color: white;
+            border-radius: 8px;
+            border: coral;
+            background: #403c3c;
+        }
+
+        .gt {
+            position: relative;
+            left: 2%;
+            color: white;
+        }
+
+        body {
+            background: black;
+        }
+
+        .tin {
+            vertical-align: middle;
+            border-radius: 10px;
+            position: relative;
+            left: 4%;
+        }
+        .list1{
+            background: #312f2f;
+            width: 44%;
+            float: right;
+            position: relative;
+            top: -510px;
+            left: -16%;
+            height: 119px;
+            border-radius: 11px;
+        }
+        .list2{
+            background: #312f2f;
+            width: 44%;
+            float: right;
+            position: relative;
+            top: -377px;
+            left: 28%;
+            border-radius: 11px;
+            height: 379px;
+        }
+        .inp{
+            width: 409px;
+            position: relative;
+            left: 9%;
+            top: 17px;
+            border-radius: 14px;
+            height: 40px;
+            background: #403c3c;
+        }
+
+    </style>
+</head>
+<body>
+<!--div tổng-->
+<div class="the_1">
+    <div>
+        <div class="a1">
+            <h2>Trang cá nhân của Trần Linh Giang</h2>
+        </div>
+        <div class="anh_bia"></div>
+        <!-- avata-->
+        <div style="height: 256px;">
+            <img style="height: 227px;
+    border-radius: 128px;
+    position: relative;
+    left: 19%;
+    top: -85px;"
+                 src="https://scontent.fdad7-2.fna.fbcdn.net/v/t39.30808-6/401839266_1339013740308826_9147018494537704207_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oBmiUWp38SUAX8a2MpX&_nc_ht=scontent.fdad7-2.fna&oh=00_AfCn10ppXhwmeoCueZtvvDIvP4AiiiZHG-NmuYB8CLGRDw&oe=65693632"
+                 alt="Avatar" class="avatar">
+            <i class="fa fa-camera" style="font-size: 30px;
+    position: relative;
+    left: 16%;
+    color: white;"></i>
+            <h1 class="ten">Trần Linh Giang</h1>
+            <h6 class="ten1">802 bạn bè . 50 đang theo dõi</h6>
+
+        </div>
+        <!-- !avata-->
+    </div>
+
+
+    <!--    giới thiệu-->
+    <div class="gioi_thieu">
+        <h5 class="gt">Giới thiệu</h5><br>
+        <button class="bt">Thêm tiểu sử</button>
+        <br><br>
+        <h6 class="gt">Sống tại Đà Nẵng</h6><br>
+        <h6 class="gt">Đến từ Ba Đồn</h6><br>
+        <button class="bt">Chỉnh sửa chi tiết</button>
+        <br><br>
+        <button class="bt">Thêm sở thích</button>
+        <br><br>
+        <img class="tin"
+             src="data:image/jpeg;base64,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">
+        <p style="color: white;
+    position: relative;
+    left: 6%;">Bộ sưu tập</p>
+        <button class="bt">Chỉnh sửa phần đáng chú ý</button>
+    </div>
+    <!-- !giới thiệu-->
+
+
+    <!--    div list-->
+    <div class="list1">
+        <img style="height: 39px;
+    border-radius: 128px;
+    position: relative;
+    left: 6%;
+    top: 16px;"
+             src="https://scontent.fdad7-2.fna.fbcdn.net/v/t39.30808-6/401839266_1339013740308826_9147018494537704207_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oBmiUWp38SUAX8a2MpX&_nc_ht=scontent.fdad7-2.fna&oh=00_AfCn10ppXhwmeoCueZtvvDIvP4AiiiZHG-NmuYB8CLGRDw&oe=65693632"
+             alt="Avatar" class="avatar">
+        <input class="inp" type="text" placeholder=" Bạn đang nghĩ gì ?">
+        <hr>
+    </div>
+    <div class="list2">
+    <form>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>STT</th>
+                <th>Tên bài viết</th>
+                <th>Địa chỉ checkin</th>
+                <th>Nội dung bài viết</th>
+            </tr>
+            <tr th:each="row,start : ${userList}">
+                <td th:text="${start.count}"></td>
+                <td th:text="${row.nameStatus}"></td>
+                <td th:text="${row.addressCheckin}"></td>
+                <td th:text="${row.content}"></td>
+            </tr>
+
+        </table>
+    </form>
+    </div>
+</div>
+</body>
+</html>
