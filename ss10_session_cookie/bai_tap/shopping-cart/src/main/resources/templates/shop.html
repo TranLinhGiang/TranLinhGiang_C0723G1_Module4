@@ -88,15 +88,15 @@
         <div style="height: auto" class="col-lg-2">
 
         </div>
-        <div style="display: flex; height: auto" class="col-lg-8">
+        <div style="display: flex; height: auto; flex-wrap: wrap" class="col-lg-8">
 
-            <div class="card" style="width: 18rem;margin: 19px;" th:each="product : ${carts}">
+            <div class="card" style="width: 15rem;margin: 19px;" th:each="product : ${carts}">
                 <img th:src="${product.image}"
                      class="card-img-top"
                      alt="...">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${product.name}">tên</h5>
-                    <h6 style="text-decoration: line-through">giá cũ: 35000 VNĐ</h6>
+                    <h6 style="text-decoration: line-through" th:text="${#numbers.formatDecimal(product.price*1.2, 0,  'COMMA', 0, 'POINT')}+' vnđ'"}></h6>
                     <h6 th:text=" ${#numbers.formatDecimal(product.price, 0,  'COMMA', 0, 'POINT')}+' vnđ'"></h6>
                     <h6 th:text="${product.description}"></h6>
                     <a class="btn btn-primary" th:href="@{/add(id=${product.id},action='list')}">Thêm vào giỏ hàng</a>
