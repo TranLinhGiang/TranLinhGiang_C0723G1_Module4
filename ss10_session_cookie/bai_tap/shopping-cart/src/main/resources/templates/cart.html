@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!--    navba-->
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Cart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a  href="/shopping-cart">
+                    <i class="fa badge" style="font-size:24px;color: black" th:value="${cart.countItemQuantity()}">&#xf07a;</i>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--    navba-->
+<p>
+    <a href="/">Trở về trang chủ</a>
+</p>
+<h1 style="text-align: center">Giỏ hàng của bạn</h1>
+<form th:action="@{/shop}" th:object="${cart}" method="post">
+    <h3>Tổng số mặt hàng <span th:text="${cart.countItemQuantity()}"></span></h3>
+    <h3>Tổng số sản phẩm: <span th:text="${cart.countProductQuantity()}"></span></h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Mục</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+        </tr>
+        <tr th:each="product: ${cart.products}">
+            <td th:text="${product.getKey().name}"></td>
+            <td>
+
+                    <a style="text-decoration: none" th:href="@{/delete(id=${product.getKey().id},action='show')}"
+                       th:text="${'-'}"></a>
+
+
+                <span th:text="${product.getValue()}"></span>
+
+                    <a style="text-decoration: none" id="increase_button" th:href="@{/add(id=${product.getKey().id},action='show')}"
+                       th:text="${'+'}"></a>
+
+
+            </td>
+            <td th:text="${#numbers.formatDecimal(product.getKey().price,0, 'COMMA',0,'POINT')}+ 'nvđ'"></td>
+
+        </tr>
+        <tr>
+            <td>Tổng giá tiền</td>
+            <td></td>
+            <td th:text="${#numbers.formatDecimal(cart.countTotalPayment(),0, 'COMMA',0,'POINT')}+ 'nvđ'"></td>
+        </tr>
+    </table>
+    <button style="    background: green;
+    position: relative;
+    left: 45%;">
+        <a style="text-decoration: none" th:href="@{/hihi}">Mua hàng</a>
+    </button>
+</form>
+</body>
+</html>
