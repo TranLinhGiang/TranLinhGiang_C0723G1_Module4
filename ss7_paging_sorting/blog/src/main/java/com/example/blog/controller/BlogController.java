@@ -53,7 +53,6 @@ public class BlogController {
     @GetMapping("/update")
     public String update(@RequestParam int id, Model model){
         model.addAttribute("updateBl",blogService.finById(id));
-
         return "/blog/update";
     }
     @PostMapping("/update")
