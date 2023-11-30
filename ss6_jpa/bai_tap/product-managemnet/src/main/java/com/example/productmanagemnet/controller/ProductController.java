@@ -18,7 +18,7 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    
+
     @GetMapping("")
     public String home(Model model){
         List<Product> productList= productService.findAll();
