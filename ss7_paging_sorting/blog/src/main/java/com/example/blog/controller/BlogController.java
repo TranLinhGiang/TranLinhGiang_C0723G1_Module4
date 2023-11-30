@@ -61,7 +61,7 @@ public class BlogController {
         attributes.addAttribute("mess", "update thành công");
         return "redirect:/home";
     }
-    
+
     @GetMapping("/delete")
     public String delete(@RequestParam int id,Model model){
         model.addAttribute("deleteBlog",blogService.finById(id));
