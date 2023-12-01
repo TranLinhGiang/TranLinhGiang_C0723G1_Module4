@@ -2,6 +2,7 @@ package com.example.bookborrowingapplication.aop;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -15,4 +16,5 @@ public class Logger {
         System.out.println("---------------------");
         System.out.println("Số lần người dùng truy cập" + count);
     }
+    
 }
