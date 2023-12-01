@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div style="position: relative; left: 40%;">
+        <h4>Thêm mới</h4>
+        <input id="name" placeholder="enter name"><br><br>
+        <input id="poster" placeholder="enter poster"><br><br>
+        <input id="dateSubmitted" placeholder="enter dateSubmitted"><br><br>
+        <select id="category">
+            <option value="1">Du lịch</option>
+            <option value="2">Đời sống</option>
+            <option value="2">Lãng mạn</option>
+            <br>
+        </select>
+        <button id="btn-save">Save</button>
+    </div>
+    <h4>Dah sách blog</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Người đăng</th>
+                <th>Ngày đăng</th>
+            </tr>
+        </thead>
+        <tbody id="content">
+        </tbody>
+    </table>
+    <button id="btn-more">More</button>
+    <script>
+        function display() {
+            let content = "";
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                method: "get",
+                url: `http://localhost:8080/api-blog`,
+                success: function(data) {
+                    console.log(data);
+                    let data1 = data;
+                    for (let i = 0; i < data1.length; i++) {
+                        content +=
+                            `
+                    <tr>
+                        <td> ${i + 1}</td>
+                        <td> ${data1[i].name}</td>
+                        <td> ${data1[i].poster}</td>
+                        <td> ${data1[i].dateSubmitted}</td>
+                        </tr>
+                    `
+                    }
+                    $("#content").append(content);
+                }
+            })
+        }
+
+        let page = 0;
+        $(document).ready(function() {
+            // hiển thị
+            display();
+            // thêm mới
+            $("#btn-save").click(function() {
+                let name = $("#name").val();
+                let poster = $("#poster").val();
+                let dateSubmitted = $("#dateSubmitted").val();
+                let category = $("#dateSubmitted").val();
+                const blog = {
+                    name,
+                    poster,
+                    category: {
+                        id: id
+                    }
+                }
+
+                $.ajax({
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(blog),
+                    method: "post",
+                    url: "http://localhost:8080/api-blog",
+                    complete: function(res) {
+                        if (res.status == "201") {
+                            console.assert("thêm mới thành công")
+                        } else {
+                            console.log("Không thành công")
+                        }
+                        display();
+                    }
+                })
+            });
+            // hiển thị thêm
+            $("#btn-more").click(function() {
+                page++;
+                display();
+            })
+        })
+    </script>
+    <h2>Footer</h2>
+</body>
+
+</html>
