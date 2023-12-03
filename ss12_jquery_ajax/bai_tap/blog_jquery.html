@@ -121,8 +121,15 @@
                         id: id
                     }
                 }
+                $("#btn-search").click(function () {
+                    page = 0;
+                    searchName = $("#searchName").val();
+                    display();
+                })
+            })
 
-                $.ajax({
+
+            $.ajax({
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify(blog),

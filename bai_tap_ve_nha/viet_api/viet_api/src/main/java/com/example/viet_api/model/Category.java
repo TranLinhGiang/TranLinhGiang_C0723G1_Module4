@@ -1,25 +1,24 @@
-package com.example.blog_api.dto;
+package com.example.viet_api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlogDto {
-
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String poster;
-    private String dateSubmitted;
-}
+    @OneToMany(mappedBy = "category")
+    private Set<Blog> blogSet;
 
+}

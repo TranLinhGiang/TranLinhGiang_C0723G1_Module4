@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9691d501-cdb0-410b-901d-93f3b3a279bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/java/com/example/springusermodel/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/java/com/example/springusermodel/model/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/java/com/example/springusermodel/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/java/com/example/springusermodel/model/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../thuc_hanh/bai_2/spring-user-model/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../thuc_hanh/chuyen_doi_tien_te/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../thuc_hanh/chuyen_doi_tien_te/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/java/com/example/viet_api/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/resources/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../bai_tap_ve_nha/viet_api/viet_api/src/main/resources/templates/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss11_webservice_restful/bai_tap/blog_api/src/main/java/com/example/blog_api/dto/BlogDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss11_webservice_restful/bai_tap/blog_api/src/main/java/com/example/blog_api/dto/BlogDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +84,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/TranLinhGiang_C0723G1_Module4/ss4_data_binding_form/bai_tap/bai_1/electronic-mailbox/src/main/webapp/WEB-INF",
+    "last_opened_file_path": "F:/TranLinhGiang_C0723G1_Module4/ss4_data_binding_form/bai_tap/bai_1/electronic-mailbox",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "133dc2e55140f0d3fceaf5c84b6e1c52"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -192,6 +195,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700108163875</updated>
       <workItem from="1700108165068" duration="4972000" />
+      <workItem from="1701529659449" duration="11000" />
     </task>
     <servers />
   </component>

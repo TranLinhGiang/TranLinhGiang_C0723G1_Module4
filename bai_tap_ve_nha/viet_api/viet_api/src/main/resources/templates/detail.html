@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chi tiết blog</h1>
+<form action="/detail" method="get" th:object="${detailBlog}">
+    <label>id: </label>
+    <h3 th:text="${detailBlog.getId()}"></h3>
+
+
+    <label>Tên blog: </label>
+    <h3 th:text="${detailBlog.getName()}"></h3>
+
+    <label>Tên người đăng: </label>
+    <h3 th:text="${detailBlog.getPoster()}"></h3>
+
+    <label>Ngày đăng: </label>
+    <h3 th:text="${detailBlog.getDatePost()}"></h3>
+
+    <label> Loại: </label>
+    <h3 th:text="${detailBlog.category.name}"></h3>
+</form>
+</body>
+</html>
